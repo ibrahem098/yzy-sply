@@ -5,7 +5,7 @@ let products = [
         sizes: 0,
         color: "media",
         isPrinted: true,
-        images: ["/assets/images/front/IN-01.png"]
+        images: ["assets/images/front/IN-01.png"]
     },
     {
         id: null,
@@ -15,7 +15,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/TS-01W.jpg", "/assets/images/back/TS-01W.jpg"]
+        images: ["assets/images/front/TS-01W.jpg", "assets/images/back/TS-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -24,7 +24,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/TS-02W.jpg", "/assets/images/back/TS-02W.jpg"]
+        images: ["assets/images/front/TS-02W.jpg", "assets/images/back/TS-02W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -33,7 +33,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/HD-01W.jpg", "/assets/images/back/HD-01W.jpg"]
+        images: ["assets/images/front/HD-01W.jpg", "assets/images/back/HD-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -42,7 +42,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/WB-01W.jpg", "/assets/images/back/WB-01W.jpg"]
+        images: ["assets/images/front/WB-01W.jpg", "assets/images/back/WB-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -51,7 +51,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/RC-01W.jpg", "/assets/images/back/RC-01W.jpg"]
+        images: ["assets/images/front/RC-01W.jpg", "assets/images/back/RC-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -60,7 +60,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/SH-01W.jpg", "/assets/images/back/SH-01W.jpg"]
+        images: ["assets/images/front/SH-01W.jpg", "assets/images/back/SH-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -69,7 +69,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/SP-01W.jpg", "/assets/images/back/SP-01W.jpg"]
+        images: ["assets/images/front/SP-01W.jpg", "assets/images/back/SP-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -78,7 +78,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/SP-06W.jpg", "/assets/images/back/SP-06W.jpg"]
+        images: ["assets/images/front/SP-06W.jpg", "assets/images/back/SP-06W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -87,7 +87,7 @@ let products = [
         sizeList: null,
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/SK-01W.jpg", "/assets/images/back/SK-01W.jpg"]
+        images: ["assets/images/front/SK-01W.jpg", "assets/images/back/SK-01W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -95,7 +95,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/TS-010W.jpg", "/assets/images/back/TS-010W.jpg"]
+        images: ["assets/images/front/TS-010W.jpg", "assets/images/back/TS-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -103,7 +103,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/TS-020W.jpg", "/assets/images/back/TS-020W.jpg"]
+        images: ["assets/images/front/TS-020W.jpg", "assets/images/back/TS-020W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -111,7 +111,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/HD-010W.jpg", "/assets/images/back/HD-010W.jpg"]
+        images: ["assets/images/front/HD-010W.jpg", "assets/images/back/HD-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -119,7 +119,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/WB-010W.jpg", "/assets/images/back/WB-010W.jpg"]
+        images: ["assets/images/front/WB-010W.jpg", "assets/images/back/WB-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -127,7 +127,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/RC-010W.jpg", "/assets/images/back/RC-010W.jpg"]
+        images: ["assets/images/front/RC-010W.jpg", "assets/images/back/RC-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -135,7 +135,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/SH-010W.jpg", "/assets/images/back/SH-010W.jpg"]
+        images: ["assets/images/front/SH-010W.jpg", "assets/images/back/SH-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -143,7 +143,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/SP-010W.jpg", "/assets/images/back/SP-010W.jpg"]
+        images: ["assets/images/front/SP-010W.jpg", "assets/images/back/SP-010W.jpg"]
 
     }, {
         id: null,
@@ -152,7 +152,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "white",
-        images: ["/assets/images/front/SP-060W.jpg", "/assets/images/back/SP-060W.jpg"]
+        images: ["assets/images/front/SP-060W.jpg", "assets/images/back/SP-060W.jpg"]
 
     }, {
         id: null,
@@ -162,7 +162,7 @@ let products = [
         sizeList: null,
         color: "white",
         isPrinted: false,
-        images: ["/assets/images/front/SK-010W.jpg", "/assets/images/back/SK-010W.jpg"]
+        images: ["assets/images/front/SK-010W.jpg", "assets/images/back/SK-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -170,7 +170,7 @@ let products = [
         sizes: 16,
         sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
         color: "white",
-        images: ["/assets/images/front/SL-01W.jpg", "/assets/images/back/SL-010W.jpg"]
+        images: ["assets/images/front/SL-01W.jpg", "assets/images/back/SL-010W.jpg"]
     }, {
         id: null,
         price: 20,
@@ -179,7 +179,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/TS-01G.jpg", "/assets/images/back/TS-01G.jpg"]
+        images: ["assets/images/front/TS-01G.jpg", "assets/images/back/TS-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -188,7 +188,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/TS-02G.jpg", "/assets/images/back/TS-02G.jpg"]
+        images: ["assets/images/front/TS-02G.jpg", "assets/images/back/TS-02G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -197,7 +197,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/HD-01G.jpg", "/assets/images/back/HD-01G.jpg"]
+        images: ["assets/images/front/HD-01G.jpg", "assets/images/back/HD-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -206,7 +206,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/WB-01G.jpg", "/assets/images/back/WB-01G.jpg"]
+        images: ["assets/images/front/WB-01G.jpg", "assets/images/back/WB-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -215,7 +215,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/RC-01G.jpg", "/assets/images/back/RC-01G.jpg"]
+        images: ["assets/images/front/RC-01G.jpg", "assets/images/back/RC-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -224,7 +224,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SH-01G.jpg", "/assets/images/back/SH-01G.jpg"]
+        images: ["assets/images/front/SH-01G.jpg", "assets/images/back/SH-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -233,7 +233,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-01G.jpg", "/assets/images/back/SP-01G.jpg"]
+        images: ["assets/images/front/SP-01G.jpg", "assets/images/back/SP-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -242,7 +242,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-06G.jpg", "/assets/images/back/SP-06G.jpg"]
+        images: ["assets/images/front/SP-06G.jpg", "assets/images/back/SP-06G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -251,7 +251,7 @@ let products = [
         sizeList: null,
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SK-01G.jpg", "/assets/images/back/SK-01G.jpg"]
+        images: ["assets/images/front/SK-01G.jpg", "assets/images/back/SK-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -259,7 +259,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/TS-010G.jpg", "/assets/images/back/TS-010G.jpg"]
+        images: ["assets/images/front/TS-010G.jpg", "assets/images/back/TS-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -267,7 +267,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/TS-020G.jpg", "/assets/images/back/TS-020G.jpg"]
+        images: ["assets/images/front/TS-020G.jpg", "assets/images/back/TS-020G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -275,7 +275,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/HD-010G.jpg", "/assets/images/back/HD-010G.jpg"]
+        images: ["assets/images/front/HD-010G.jpg", "assets/images/back/HD-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -283,7 +283,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/WB-010G.jpg", "/assets/images/back/WB-010G.jpg"]
+        images: ["assets/images/front/WB-010G.jpg", "assets/images/back/WB-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -291,7 +291,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/RC-010G.jpg", "/assets/images/back/RC-010G.jpg"]
+        images: ["assets/images/front/RC-010G.jpg", "assets/images/back/RC-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -299,7 +299,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/SH-010G.jpg", "/assets/images/back/SH-010G.jpg"]
+        images: ["assets/images/front/SH-010G.jpg", "assets/images/back/SH-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -307,7 +307,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/SP-010G.jpg", "/assets/images/back/SP-010G.jpg"]
+        images: ["assets/images/front/SP-010G.jpg", "assets/images/back/SP-010G.jpg"]
 
     }, {
         id: null,
@@ -316,7 +316,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["/assets/images/front/SP-06G.jpg", "/assets/images/back/SP-060G.jpg"]
+        images: ["assets/images/front/SP-06G.jpg", "assets/images/back/SP-060G.jpg"]
 
     }, {
         id: null,
@@ -326,7 +326,7 @@ let products = [
         sizeList: null,
         color: "gray",
         isPrinted: false,
-        images: ["/assets/images/front/SK-01G.jpg", "/assets/images/back/SK-010G.jpg"]
+        images: ["assets/images/front/SK-01G.jpg", "assets/images/back/SK-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -334,7 +334,7 @@ let products = [
         sizes: 16,
         sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
         color: "gray",
-        images: ["/assets/images/front/SL-01G.jpg", "/assets/images/back/SL-01G.jpg"]
+        images: ["assets/images/front/SL-01G.jpg", "assets/images/back/SL-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -343,7 +343,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/TS-01G.jpg", "/assets/images/back/TS-01G.jpg"]
+        images: ["assets/images/front/TS-01G.jpg", "assets/images/back/TS-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -352,7 +352,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/TS-02G.jpg", "/assets/images/back/TS-02G.jpg"]
+        images: ["assets/images/front/TS-02G.jpg", "assets/images/back/TS-02G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -361,7 +361,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/HD-01G.jpg", "/assets/images/back/HD-01G.jpg"]
+        images: ["assets/images/front/HD-01G.jpg", "assets/images/back/HD-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -370,7 +370,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/WB-01G.jpg", "/assets/images/back/WB-01G.jpg"]
+        images: ["assets/images/front/WB-01G.jpg", "assets/images/back/WB-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -379,7 +379,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/RC-01G.jpg", "/assets/images/back/RC-01G.jpg"]
+        images: ["assets/images/front/RC-01G.jpg", "assets/images/back/RC-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -388,7 +388,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SH-01G.jpg", "/assets/images/back/SH-01G.jpg"]
+        images: ["assets/images/front/SH-01G.jpg", "assets/images/back/SH-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -397,7 +397,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-01G.jpg", "/assets/images/back/SP-01G.jpg"]
+        images: ["assets/images/front/SP-01G.jpg", "assets/images/back/SP-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -406,7 +406,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-06G.jpg", "/assets/images/back/SP-06G.jpg"]
+        images: ["assets/images/front/SP-06G.jpg", "assets/images/back/SP-06G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -415,7 +415,7 @@ let products = [
         sizeList: null,
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SK-01G.jpg", "/assets/images/back/SK-01G.jpg"]
+        images: ["assets/images/front/SK-01G.jpg", "assets/images/back/SK-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -423,7 +423,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/TS-010B.jpg", "/assets/images/back/TS-010B.jpg"]
+        images: ["assets/images/front/TS-010B.jpg", "assets/images/back/TS-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -431,7 +431,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/TS-020B.jpg", "/assets/images/back/TS-020B.jpg"]
+        images: ["assets/images/front/TS-020B.jpg", "assets/images/back/TS-020B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -439,7 +439,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/HD-010B.jpg", "/assets/images/back/HD-010B.jpg"]
+        images: ["assets/images/front/HD-010B.jpg", "assets/images/back/HD-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -447,7 +447,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/WB-010B.jpg", "/assets/images/back/WB-010B.jpg"]
+        images: ["assets/images/front/WB-010B.jpg", "assets/images/back/WB-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -455,7 +455,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/RC-010B.jpg", "/assets/images/back/RC-010B.jpg"]
+        images: ["assets/images/front/RC-010B.jpg", "assets/images/back/RC-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -463,7 +463,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/SH-010B.jpg", "/assets/images/back/SH-010B.jpg"]
+        images: ["assets/images/front/SH-010B.jpg", "assets/images/back/SH-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -471,7 +471,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/SP-010B.jpg", "/assets/images/back/SP-010B.jpg"]
+        images: ["assets/images/front/SP-010B.jpg", "assets/images/back/SP-010B.jpg"]
 
     }, {
         id: null,
@@ -480,7 +480,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/SP-06B.jpg", "/assets/images/back/SP-060B.jpg"]
+        images: ["assets/images/front/SP-06B.jpg", "assets/images/back/SP-060B.jpg"]
 
     }, {
         id: null,
@@ -490,7 +490,7 @@ let products = [
         sizeList: null,
         color: "black",
         isPrinted: false,
-        images: ["/assets/images/front/SK-01B.jpg", "/assets/images/back/SK-010B.jpg"]
+        images: ["assets/images/front/SK-01B.jpg", "assets/images/back/SK-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -498,7 +498,7 @@ let products = [
         sizes: 16,
         sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
         color: "black",
-        images: ["/assets/images/front/SL-01B.jpg", "/assets/images/back/SL-01B.jpg"]
+        images: ["assets/images/front/SL-01B.jpg", "assets/images/back/SL-01B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -507,7 +507,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "white",
         isPrinted: true,
-        images: ["/assets/images/front/LS-01W.jpg"]
+        images: ["assets/images/front/LS-01W.jpg"]
 
     }, {
         id: null,
@@ -517,7 +517,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "black",
         isPrinted: true,
-        images: ["/assets/images/front/LS-01B.jpg"]
+        images: ["assets/images/front/LS-01B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -526,7 +526,7 @@ let products = [
         sizeList: null,
         color: "media",
         isPrinted: true,
-        images: ["/assets/images/front/BLY-01.png"]
+        images: ["assets/images/front/BLY-01.png"]
 
     }, {
         id: null,
@@ -536,7 +536,7 @@ let products = [
         sizeList: null,
         color: "media",
         isPrinted: true,
-        images: ["/assets/images/front/VN-01.png"]
+        images: ["assets/images/front/VN-01.png"]
 
     }, {
         id: null,
@@ -546,7 +546,7 @@ let products = [
         sizeList: null,
         color: "media",
         isPrinted: true,
-        images: ["/assets/images/front/CD-01.png"]
+        images: ["assets/images/front/CD-01.png"]
     }, {
         id: null,
         price: 20,
@@ -555,7 +555,7 @@ let products = [
         sizeList: [1, 2, 3],
         color: "black",
         isPrinted: true,
-        images: ["/assets/images/front/BD-01B.jpg"]
+        images: ["assets/images/front/BD-01B.jpg"]
     }
 ]
 let cart = [
@@ -567,7 +567,7 @@ let cart = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/RC-01G.jpg", "/assets/images/back/RC-01G.jpg"]
+        images: ["assets/images/front/RC-01G.jpg", "assets/images/back/RC-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -576,7 +576,7 @@ let cart = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SH-01G.jpg", "/assets/images/back/SH-01G.jpg"]
+        images: ["assets/images/front/SH-01G.jpg", "assets/images/back/SH-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -585,7 +585,7 @@ let cart = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-01G.jpg", "/assets/images/back/SP-01G.jpg"]
+        images: ["assets/images/front/SP-01G.jpg", "assets/images/back/SP-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -594,7 +594,7 @@ let cart = [
         sizeList: [1, 2, 3],
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SP-06G.jpg", "/assets/images/back/SP-06G.jpg"]
+        images: ["assets/images/front/SP-06G.jpg", "assets/images/back/SP-06G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -603,7 +603,7 @@ let cart = [
         sizeList: null,
         color: "gray",
         isPrinted: true,
-        images: ["/assets/images/front/SK-01G.jpg", "/assets/images/back/SK-01G.jpg"]
+        images: ["assets/images/front/SK-01G.jpg", "assets/images/back/SK-01G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -611,7 +611,7 @@ let cart = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/TS-010B.jpg", "/assets/images/back/TS-010B.jpg"]
+        images: ["assets/images/front/TS-010B.jpg", "assets/images/back/TS-010B.jpg"]
     }, {
         id: null,
         price: 20,
@@ -619,7 +619,7 @@ let cart = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["/assets/images/front/TS-020B.jpg", "/assets/images/back/TS-020B.jpg"]
+        images: ["assets/images/front/TS-020B.jpg", "assets/images/back/TS-020B.jpg"]
     }
 ]
 
