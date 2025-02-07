@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YZY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="leftSide">
+            <button class="listToggle">=</button>
+            <button class="zoomOut hidden"></button>
+            <button class="zoom">+</button>
+            <a class="backArrow hidden"></a>
+            <ul class="listItems hidden">
+                <li><a href="">SUPPORT</a></li>
+                <li><a href="">TERMS</a></li>
+                <li><a href="">PRIVACY</a></li>
+                <li><a href="">ACCESSIBILITY</a></li>
+            </ul>
+        </div>
+        <div class="rightSide">
+            <button class="cartToggle buttonClear">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="8" width="12" height="10" rx="2" stroke="black" stroke-width="2"
+                        stroke-linecap="round">
+                    </rect>
+                    <path d="M9 7V7C9 5.34315 10.3431 4 12 4V4C13.6569 4 15 5.34315 15 7V7" stroke="black"
+                        stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                <span class="cartTotal">0</span>
+            </button>
+        </div>
+    </header>
+    <div class="proudctsGrid"></div>
+    <div class="cartContiner hidden">
+        <div class="cartView">
+        </div>
+        <div class="calculations">
+            <div class="total">
+                <span>TOTAL</span>
+                <span class="totalSpan"></span>
+            </div>
+            <p>Tax and Shipping Not Included</p>
+            <div class="Continue">
+                <span>Continue</span>
+                <button>></button>
+            </div>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>
+
+<!-- <div class="productCard">
+    <img src="${product.images[0]}">
+    <div class="info">
+        <div class="head">
+            <span>${product.title}</span>
+        </div>
+        <div class="addButtonContiner">
+            <button class="buttonClear">+</button>
+        </div>
+    </div>
+    <div class="sizeSelectContiner">
+        <div class="head">
+            <button class="helpButton">?</button>
+            <span>Select Size</span>
+            <button class="helpButton">></button>
+        </div>
+        <div class="sizeList">
+            <button class="sizeSet buttonClear">1</button>
+            <button class="sizeSet buttonClear">2</button>
+            <button class="sizeSet buttonClear">3</button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="productCard"><img src="${product.images[0]}"><div class="info"><div class="head"><span>${product.title}</span></div><div class="addButtonContiner"><button class="buttonClear">+</button></div></div><div class="sizeSelectContiner"><div class="head"><button class="helpButton">?</button><span>Select Size</span><button class="helpButton">></button></div><div class="sizeList"><button class="sizeSet buttonClear">1</button><button class="sizeSet buttonClear">2</button><button class="sizeSet buttonClear">3</button></div></div></div> -->
