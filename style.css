@@ -13,21 +13,15 @@
 :root {
     --gap: 1rem;
     --height-nav: 3rem;
-    --height-product-title: 1.5rem;
-    --height-product-details-gap: 3rem;
-    --height-product-details: 7.5rem;
     --height-product-full-details: calc(var(--height-product-details) + var(--height-product-details-gap) + var(--height-product-title));
 }
 
 * {
+    box-sizing: border-box;
     font-family: "IBMPlexMono", monospace;
-    font-weight: normal;
     padding: 0px;
     margin: 0px;
-    box-sizing: border-box;
 }
-
-
 
 html,
 body {
@@ -40,7 +34,6 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: white;
     padding: 0px 1.5rem;
     position: sticky;
     top: 0px;
@@ -58,6 +51,7 @@ svg {
 }
 
 .proudctsGrid {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: var(--gap);
@@ -65,12 +59,6 @@ svg {
     padding-top: 0px;
     height: calc(100vh - var(--height-nav));
     overflow: auto;
-    opacity: 1;
-    position: absolute;
-    transition: opacity 300ms ease-in-out;
-    transition: opacity .4s ease-in-out, height .4s ease-in-out;
-    transform-origin: 50% 50%;
-
 }
 
 .info {
@@ -84,10 +72,6 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.show-grid {
-    opacity: 1;
 }
 
 .proudctsGrid>div {
