@@ -81,6 +81,7 @@ cartToggleElemnt.addEventListener("click", () => {
         displayCart = true;
     }
     updatePage()
+
 })
 // back arrow 
 let backArrowElemnt = document.querySelector(".backArrow")

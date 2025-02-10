@@ -158,14 +158,6 @@ let products = [
     }, {
         id: null,
         price: 20,
-        title: "SL-01",
-        sizes: 16,
-        sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        color: "white",
-        images: ["assets/images/front/SL-01W.jpg", "assets/images/back/SL-010W.jpg"]
-    }, {
-        id: null,
-        price: 20,
         title: "TS-01",
         sizes: 3,
         sizeList: [1, 2, 3],
@@ -308,7 +300,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "gray",
-        images: ["assets/images/front/SP-06G.jpg", "assets/images/back/SP-060G.jpg"]
+        images: ["assets/images/front/SP-060G.jpg", "assets/images/back/SP-060G.jpg"]
 
     }, {
         id: null,
@@ -318,15 +310,7 @@ let products = [
         sizeList: null,
         color: "gray",
         isPrinted: false,
-        images: ["assets/images/front/SK-01G.jpg", "assets/images/back/SK-010G.jpg"]
-    }, {
-        id: null,
-        price: 20,
-        title: "SL-01",
-        sizes: 16,
-        sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        color: "gray",
-        images: ["assets/images/front/SL-01G.jpg", "assets/images/back/SL-01G.jpg"]
+        images: ["assets/images/front/SK-010G.jpg", "assets/images/back/SK-010G.jpg"]
     }, {
         id: null,
         price: 20,
@@ -472,7 +456,7 @@ let products = [
         sizes: 3,
         sizeList: [1, 2, 3],
         color: "black",
-        images: ["assets/images/front/SP-06B.jpg", "assets/images/back/SP-060B.jpg"]
+        images: ["assets/images/front/SP-060B.jpg", "assets/images/back/SP-060B.jpg"]
 
     }, {
         id: null,
@@ -482,88 +466,16 @@ let products = [
         sizeList: null,
         color: "black",
         isPrinted: false,
-        images: ["assets/images/front/SK-01B.jpg", "assets/images/back/SK-010B.jpg"]
-    }, {
-        id: null,
-        price: 20,
-        title: "SL-01",
-        sizes: 16,
-        sizeList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        color: "black",
-        images: ["assets/images/front/SL-01B.jpg", "assets/images/back/SL-01B.jpg"]
+        images: ["assets/images/front/SK-010B.jpg", "assets/images/back/SK-010B.jpg"]
     }
 ]
-let cart = [
-    {
-        id: null,
-        price: 20,
-        title: "TS-01",
-        sizes: 3,
-        sizeList: [1, 2, 3],
-        color: "white",
-        isPrinted: true,
-        images: ["assets/images/front/TS-01W.jpg", "assets/images/back/TS-01W.jpg"],
-        quantity: 2,
-    }, {
-        id: null,
-        price: 20,
-        title: "TS-02",
-        sizes: 3,
-        sizeList: [1, 2, 3],
-        color: "white",
-        isPrinted: true,
-        images: ["assets/images/front/TS-02W.jpg", "assets/images/back/TS-02W.jpg"],
-        quantity: 3,
-    }, {
-        id: null,
-        price: 20,
-        title: "HD-01",
-        sizes: 3,
-        sizeList: [1, 2, 3],
-        color: "white",
-        isPrinted: true,
-        images: ["assets/images/front/HD-01W.jpg", "assets/images/back/HD-01W.jpg"],
-        quantity: 1,
-    }, {
-        id: null,
-        price: 20,
-        title: "WB-01",
-        sizes: 3,
-        sizeList: [1, 2, 3],
-        color: "white",
-        isPrinted: true,
-        images: ["assets/images/front/WB-01W.jpg", "assets/images/back/WB-01W.jpg"],
-        quantity: 2,
-    }, {
-        id: null,
-        price: 20,
-        title: "RC-01",
-        sizes: 3,
-        sizeList: [1, 2, 3],
-        color: "white",
-        isPrinted: true,
-        images: ["assets/images/front/RC-01W.jpg", "assets/images/back/RC-01W.jpg"],
-        quantity: 3,
-    }
-]
+let cart = []
 
-// make Cart Items HTML 
-let cartContinerElemnt = document.querySelector(".cartContiner")
-let cartViewElemnt = document.querySelector(".cartView")
-let cartItemHTML = ''
-function makeCartItemHTML(CartItemObject) {
-    cartItemHTML = `<div class="cartItem" data-id="${CartItemObject.id}"><img src="${CartItemObject.images[0]}"><div class="itemDetails">
-<div class="itemTag"><span class="itemTitle">${CartItemObject.title}</span><span class="itemPrice">${CartItemObject.price} USD</span>
-</div><div class="itemSizeLine"><span>SIZE</span><span class="itemSize">${CartItemObject.sizes}</span></div><div class="qtyLine"><span>QTY</span>
-<div class="qtySet"><button class="leaveQTY qtyChange">-</button><span class="qty">${CartItemObject.quantity}</span><button class="addQTY qtyChange">+</button></div></div></div></div>`
-    return cartItemHTML
-}
+products.forEach(product => {
+    product.quantity = 1
+})
 
 let proudctsGridElemnt = document.querySelector(".proudctsGrid")
-let QTYButtons = document.querySelectorAll(".qtyChange")
-
-////////
-
 function makeProductGrid() {
     products.forEach((product, index) => {
         // set id
@@ -574,25 +486,98 @@ function makeProductGrid() {
         proudctsGridElemnt.innerHTML += proudctHTML;
     })
 }
-function makeCartHTML() {
-
-    cartViewElemnt.innerHTML = ''
+// make Cart Items HTML 
+let cartContinerElemnt = document.querySelector(".cartContiner")
+let cartViewElemnt = document.querySelector(".cartView")
+let cartItemHTML = ''
+function makeCartItemHTML(CartItemObject) {
+    cartItemHTML = `<div class="cartItem" data-id="${CartItemObject.id}"><img src="${CartItemObject.images[0]}"><div class="itemDetails">
+<div class="itemTag"><span class="itemTitle">${CartItemObject.title}</span><span class="itemPrice">${CartItemObject.price} USD</span>
+</div><div class="itemSizeLine"><span>SIZE</span><span class="itemSize">${CartItemObject.sizes}</span></div><div class="qtyLine"><span>QTY</span>
+<div class="qtySet"><button class="leaveQTY qtyChange" data-id="${CartItemObject.id}">-</button><span class="qty">${CartItemObject.quantity}</span><button class="addQTY qtyChange" data-id="${CartItemObject.id}">+</button></div></div></div></div>`
+    return cartItemHTML
+}
+// calculate total
+let totalSpanElemnt = document.querySelector('.totalSpan')
+function calculateTotal() {
+    let cartTotal = 0
     cart.forEach(cartItem => {
+        cartTotal += (cartItem.quantity * cartItem.price)
+    })
+    totalSpanElemnt.innerText = cartTotal;
+}
+
+function makeCartHTML() {
+    cartViewElemnt.innerHTML = ''
+    cart.forEach((cartItem, index) => {
+        // set cartItem ID
+        cartItem.id = index + 1;
         makeCartItemHTML(cartItem);
         cartViewElemnt.innerHTML += cartItemHTML
     })
-
-    QTYButtons.forEach((elemnt, index) => {
-        elemnt.addEventListener("click", () => {
-            cart.forEach(cartItem => {
-                if (cartItem.id == Math.floor(index / 2) + 1) {
-                    selectedItem = cartItem
-                }
-            })
-            updateQuantity(selectedItem, elemnt.classList[0])
+    let QTYButtons = document.querySelectorAll(".qtyChange")
+    let selectedCartItem;
+    QTYButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            let itemId = parseInt(button.getAttribute("data-id"));
+            let selectedCartItem = cart.find(cartItem => cartItem.id === itemId);
+            if (selectedCartItem) {
+                updateQuantity(selectedCartItem, button.classList[0]);
+            }
         })
     })
 }
 
+function updateQuantity(selectedCartItem, elemntClass) {
+    if (elemntClass === "addQTY") {
+        selectedCartItem.quantity++;
+    } else {
+        if (selectedCartItem.quantity === 1) {
+            let index = cart.findIndex(item => item.id === selectedCartItem.id);
+            if (index !== -1) {
+                cart.splice(index, 1);
+            }
+        } else {
+            selectedCartItem.quantity--;
+        }
+    }
+    calculateTotal()
+    updateCounter()
+    makeCartHTML()
+}
+
 makeProductGrid()
 makeCartHTML()
+function addToCart(selectedObject) {
+    if (selectedObject.quantity >= 1) {
+        selectedObject.quantity++;
+        console.log("qut=" + selectedObject);
+
+    } else {
+        selectedObject.quantity = 1;
+        console.log(selectedObject);
+
+        cart.push(selectedObject)
+    };
+    makeCartHTML()
+    updateCounter()
+    calculateTotal()
+}
+let cartTotalElemnt = document.querySelector(".cartTotal")
+function updateCounter() {
+    let cartItemCount = 0;
+    cart.forEach(cartItem => {
+        cartItemCount += cartItem.quantity
+    })
+    cartTotalElemnt.innerText = cartItemCount
+}
+updateCounter()
+calculateTotal()
+
+let productCards = document.querySelectorAll(".productCard")
+productCards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+        let selectedObject = products.find(product => product.id == index + 1);
+        addToCart(selectedObject)
+    })
+})
