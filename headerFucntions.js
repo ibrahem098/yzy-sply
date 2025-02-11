@@ -17,12 +17,30 @@ listToggleElemnt.addEventListener("click", () => {
 let zoomInButton = document.querySelector(".zoom");
 let zoomOutButton = document.querySelector(".zoomOut")
 let columnState = 9;
+let addButtonContinerElemnts = document.querySelectorAll(".addButtonContiner")
+function toggleAddButton(buttonState) {
+    addButtonContinerElemnts.forEach(addButton => {
+        if (buttonState === "visible") {
+            addButton.classList.remove("hidden")
+        } else {
+            addButton.classList.add("hidden")
+        }
+
+    })
+}
+
 function zoomIn() {
     columnState -= 3;
+    proudctsGridElemnt.classList.add("zoomIn");
+    setTimeout(() => {
+        proudctsGridElemnt.classList.remove("zoomIn");
+    }, 4000);
 }
+
 function zoomOut() {
     columnState += 3;
 }
+
 zoomInButton.addEventListener("click", () => {
     listToggleElemnt.classList.add("hidden");
     zoomOutButton.classList.remove("hidden");
@@ -30,12 +48,16 @@ zoomInButton.addEventListener("click", () => {
         zoomIn()
     } else if (columnState === 6) {
         zoomIn()
+        toggleAddButton("visible")
     } else if (columnState === 3) {
         columnState = 1
         zoomInButton.classList.add("hidden");
     }
-    proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+    setTimeout(() => {
+        proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+    }, 4000);
 });
+
 
 zoomOutButton.innerText = "<"
 zoomOutButton.addEventListener("click", () => {
@@ -45,6 +67,7 @@ zoomOutButton.addEventListener("click", () => {
         listToggleElemnt.classList.remove("hidden");
     } else if (columnState === 3) {
         zoomOut()
+        toggleAddButton("hidden")
     } else if (columnState === 1) {
         zoomInButton.classList.remove("hidden");
         columnState = 3

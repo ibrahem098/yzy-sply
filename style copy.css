@@ -61,17 +61,6 @@ svg {
     overflow: auto;
 }
 
-
-.zoomIn {
-    transform: scale(1.2);
-    filter: blur(10px);
-    opacity: 0;
-    transition:
-        transform 4000ms,
-        filter 4000ms ease-in-out,
-        opacity 4000ms;
-}
-
 .info {
     width: 100%;
     text-align: center;
@@ -289,4 +278,22 @@ a {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.products-grid {
+    display: grid;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.productCard {
+    transform: scale(1);
+    /* Default scale */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth zoom effect */
+}
+
+.productCard.zoom-in {
+    transform: scale(1.1);
+    /* Slight zoom effect */
 }

@@ -1,3 +1,4 @@
+
 let products = [
     {
         id: null,
@@ -471,28 +472,28 @@ let products = [
 ]
 let cart = []
 
-products.forEach(product => {
-    product.quantity = 1
+products.forEach((product, index) => {
+    product.quantity = 1;
+    product.id = index + 1
 })
 
+let displayAddButton = false;
 let proudctsGridElemnt = document.querySelector(".proudctsGrid")
 function makeProductGrid() {
     products.forEach((product, index) => {
-        // set id
-        product.id = index + 1;
-        // add each product
         // proudctHTML = `<div class="productCard"><img src="${product.images[0]}"><div class="info hidden"><div class="title"><span>${product.title}</span></div><div class="addButtonContiner"><button class="buttonClear">+</button></div></div><div class="sizeSelectContiner"><div class="head"><button class="helpButton buttonClear">?</button><span>SELECT SIZE</span><button class="closeButton buttonClear">></button></div><div class="sizeList"><div class="sizeNum "><button class="sizeSet buttonClear">1</button><button class="sizeSet buttonClear">2</button><button class="sizeSet buttonClear">3</button></div><div class="sizeTxt hidden"><button class="sizeSet buttonClear">S-M</button><button class="sizeSet buttonClear">M-L</button><button class="sizeSet buttonClear">XL-XXL</button></div></div></div></div>`;
-        proudctHTML = `<div class="productCard"><img  src="${product.images[0]}"><div class="info"><span>${product.title}</span><div class="addButtonContiner"><button class="buttonClear">+</button></div></div></div>`;
+        proudctHTML = `<div class="productCard"><img  src="${product.images[0]}"><div class="info"><span>${product.title}</span><div class="addButtonContiner hidden"><button class="buttonClear">+</button></div></div></div>`;
         proudctsGridElemnt.innerHTML += proudctHTML;
     })
 }
+// ${displayAddButton ? "" : "hidden"}
 // make Cart Items HTML 
 let cartContinerElemnt = document.querySelector(".cartContiner")
 let cartViewElemnt = document.querySelector(".cartView")
 let cartItemHTML = ''
 function makeCartItemHTML(CartItemObject) {
     cartItemHTML = `<div class="cartItem" data-id="${CartItemObject.id}"><img src="${CartItemObject.images[0]}"><div class="itemDetails">
-<div class="itemTag"><span class="itemTitle">${CartItemObject.title}</span><span class="itemPrice">${CartItemObject.price} USD</span>
+<div class="itemTag"><span class="itemTitle">${CartItemObject.title}</span><span class="itemPrice">${(CartItemObject.price * CartItemObject.quantity)} USD</span>
 </div><div class="itemSizeLine"><span>SIZE</span><span class="itemSize">${CartItemObject.sizes}</span></div><div class="qtyLine"><span>QTY</span>
 <div class="qtySet"><button class="leaveQTY qtyChange" data-id="${CartItemObject.id}">-</button><span class="qty">${CartItemObject.quantity}</span><button class="addQTY qtyChange" data-id="${CartItemObject.id}">+</button></div></div></div></div>`
     return cartItemHTML
@@ -506,12 +507,12 @@ function calculateTotal() {
     })
     totalSpanElemnt.innerText = cartTotal;
 }
-
+// No Items
 function makeCartHTML() {
     cartViewElemnt.innerHTML = ''
     cart.forEach((cartItem, index) => {
         // set cartItem ID
-        cartItem.id = index + 1;
+        // cartItem.id = index + 1;
         makeCartItemHTML(cartItem);
         cartViewElemnt.innerHTML += cartItemHTML
     })
@@ -548,21 +549,21 @@ function updateQuantity(selectedCartItem, elemntClass) {
 
 makeProductGrid()
 makeCartHTML()
+
 function addToCart(selectedObject) {
-    if (selectedObject.quantity >= 1) {
-        selectedObject.quantity++;
-        console.log("qut=" + selectedObject);
+    let existingCartItem = cart.find(cartItem => cartItem.id === selectedObject.id);
 
+    if (existingCartItem) {
+        existingCartItem.quantity++;
     } else {
-        selectedObject.quantity = 1;
-        console.log(selectedObject);
-
-        cart.push(selectedObject)
-    };
-    makeCartHTML()
-    updateCounter()
-    calculateTotal()
+        cart.push(selectedObject);
+    }
+    makeCartHTML();
+    updateCounter();
+    calculateTotal();
 }
+
+
 let cartTotalElemnt = document.querySelector(".cartTotal")
 function updateCounter() {
     let cartItemCount = 0;
@@ -570,6 +571,11 @@ function updateCounter() {
         cartItemCount += cartItem.quantity
     })
     cartTotalElemnt.innerText = cartItemCount
+    if (cartItemCount === 0) {
+        cartTotalElemnt.classList.add("hidden")
+    } else {
+        cartTotalElemnt.classList.remove("hidden")
+    }
 }
 updateCounter()
 calculateTotal()
