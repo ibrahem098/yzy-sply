@@ -482,7 +482,7 @@ let proudctsGridElemnt = document.querySelector(".proudctsGrid")
 function makeProductGrid() {
     products.forEach((product, index) => {
         // proudctHTML = `<div class="productCard"><img src="${product.images[0]}"><div class="info hidden"><div class="title"><span>${product.title}</span></div><div class="addButtonContiner"><button class="buttonClear">+</button></div></div><div class="sizeSelectContiner"><div class="head"><button class="helpButton buttonClear">?</button><span>SELECT SIZE</span><button class="closeButton buttonClear">></button></div><div class="sizeList"><div class="sizeNum "><button class="sizeSet buttonClear">1</button><button class="sizeSet buttonClear">2</button><button class="sizeSet buttonClear">3</button></div><div class="sizeTxt hidden"><button class="sizeSet buttonClear">S-M</button><button class="sizeSet buttonClear">M-L</button><button class="sizeSet buttonClear">XL-XXL</button></div></div></div></div>`;
-        proudctHTML = `<div class="productCard"><img  src="${product.images[0]}"><div class="info"><span>${product.title}</span><div class="addButtonContiner hidden"><button class="buttonClear">+</button></div></div></div>`;
+        proudctHTML = `<div class="productCard" id="${product.id}"><img class="proudctImg" src="${product.images[0]}"><div class="info"><span>${product.title}</span><div class="addButtonContiner hidden"><button class="buttonClear AddButton">+</button></div></div></div>`;
         proudctsGridElemnt.innerHTML += proudctHTML;
     })
 }
@@ -580,10 +580,26 @@ function updateCounter() {
 updateCounter()
 calculateTotal()
 
-let productCards = document.querySelectorAll(".productCard")
-productCards.forEach((card, index) => {
-    card.addEventListener("click", () => {
-        let selectedObject = products.find(product => product.id == index + 1);
-        addToCart(selectedObject)
-    })
-})
+const addButtons = document.querySelectorAll('.AddButton');
+
+function checkButtonPositions() {
+    const showThreshold = window.innerHeight * 0.5;
+    const hideThreshold = window.innerHeight * 0.90;
+    addButtons.forEach((button) => {
+        // Get the bounding rectangle of the button
+        const rect = button.getBoundingClientRect();
+
+        // Check if the button is between the bottom 5% and 60% of the screen
+        if (rect.top <= hideThreshold && rect.bottom >= showThreshold) {
+            button.style.opacity = '1';
+        } else {
+            button.style.opacity = '0';
+        }
+    });
+}
+
+proudctsGridElemnt.addEventListener('scroll', checkButtonPositions);
+
+checkButtonPositions();
+
+

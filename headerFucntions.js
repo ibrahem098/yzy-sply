@@ -15,8 +15,9 @@ listToggleElemnt.addEventListener("click", () => {
 
 // zoom in / out
 let zoomInButton = document.querySelector(".zoom");
-let zoomOutButton = document.querySelector(".zoomOut")
+let zoomOutButton = document.querySelector(".zoomOutButton")
 let columnState = 9;
+
 let addButtonContinerElemnts = document.querySelectorAll(".addButtonContiner")
 function toggleAddButton(buttonState) {
     addButtonContinerElemnts.forEach(addButton => {
@@ -28,53 +29,104 @@ function toggleAddButton(buttonState) {
 
     })
 }
+let proudctImgs = document.querySelectorAll(".proudctImg");
+let toggle100w = true;
+function updateGrid(columnState, zoomState) {
+    // setTimeout(() => {
+    //     proudctsGridElemnt.classList.remove(`gridGap${columnState}`)
+    // }, 200)
 
-function zoomIn() {
-    columnState -= 3;
+    if (zoomState === "in") {
+        if (columnState === 9) {
+            columnState = 6
+        } else if (columnState === 6) {
+            columnState = 3
+            setTimeout(() => {
+                toggleAddButton("visible")
+            }, 400)
+        } else if (columnState === 3) {
+            zoomInButton.classList.add("hidden");
+            columnState = 1
+            toggle100w = false
+        }
+    } else {
+        if (columnState === 6) {
+            columnState = 9
+            zoomOutButton.classList.add("hidden");
+            listToggleElemnt.classList.remove("hidden");
+        } else if (columnState === 3) {
+            columnState = 6
+            toggleAddButton("hidden")
+        } else if (columnState === 1) {
+            zoomInButton.classList.remove("hidden");
+            columnState = 3
+            toggle100w = true
+        }
+    }
+    setTimeout(() => {
+        if (toggle100w) {
+            proudctImgs.forEach(proudctImg => {
+                proudctImg.classList.remove("proudctImgGrid1")
+            })
+        } else {
+            proudctImgs.forEach(proudctImg => {
+                proudctImg.classList.add("proudctImgGrid1")
+            })
+        }
+    }, 400)
+
+
+    setTimeout(() => {
+        proudctsGridElemnt.classList.add(`gridGap${columnState}`)
+    }, 400)
+    return columnState;
+}
+function zoomIn(columnState) {
+
     proudctsGridElemnt.classList.add("zoomIn");
     setTimeout(() => {
         proudctsGridElemnt.classList.remove("zoomIn");
-    }, 4000);
-}
+        proudctsGridElemnt.classList.add("fadeIn", "show");
+        setTimeout(() => {
+            proudctsGridElemnt.classList.remove("fadeIn", "show");
+        }, 800);
+        proudctsGridElemnt.classList.remove(`gridGap${columnState}`)
+    }, 400);
 
-function zoomOut() {
-    columnState += 3;
 }
 
 zoomInButton.addEventListener("click", () => {
     listToggleElemnt.classList.add("hidden");
     zoomOutButton.classList.remove("hidden");
-    if (columnState === 9) {
-        zoomIn()
-    } else if (columnState === 6) {
-        zoomIn()
-        toggleAddButton("visible")
-    } else if (columnState === 3) {
-        columnState = 1
-        zoomInButton.classList.add("hidden");
-    }
+    zoomIn(columnState)
+    columnState = updateGrid(columnState, "in");
     setTimeout(() => {
         proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
-    }, 4000);
+    }, 400);
 });
 
 
+
+function zoomOut(columnState) {
+    proudctsGridElemnt.classList.add("zoomOut");
+    setTimeout(() => {
+        proudctsGridElemnt.classList.remove("zoomOut");
+        proudctsGridElemnt.classList.add("fadeIn", "show");
+        setTimeout(() => {
+            proudctsGridElemnt.classList.remove("fadeIn", "show");
+        }, 800);
+        proudctsGridElemnt.classList.remove(`gridGap${columnState}`)
+    }, 400);
+}
+
 zoomOutButton.innerText = "<"
 zoomOutButton.addEventListener("click", () => {
-    if (columnState === 6) {
-        zoomOut()
-        zoomOutButton.classList.add("hidden");
-        listToggleElemnt.classList.remove("hidden");
-    } else if (columnState === 3) {
-        zoomOut()
-        toggleAddButton("hidden")
-    } else if (columnState === 1) {
-        zoomInButton.classList.remove("hidden");
-        columnState = 3
-    }
-    proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+    zoomOut(columnState)
+    columnState = updateGrid(columnState, "out");
+    setTimeout(() => {
+        proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+    }, 400);
 })
-
 
 // display Cart Toggle
 let displayCart = false;
@@ -126,3 +178,27 @@ function updatePage() {
     updateHeader()
 }
 
+
+let productCards = document.querySelectorAll(".productCard");
+
+productCards.forEach((card, index) => {
+    const handleClick = () => {
+        // Your logic here
+        zoomIn(3);
+        columnState = updateGrid(3, "in");
+        setTimeout(() => {
+            proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+        }, 400);
+        updateHeader();
+
+        // Remove the event listener after it runs
+        card.removeEventListener("click", handleClick);
+    };
+
+    card.addEventListener("click", handleClick);
+});
+
+
+
+// let selectedObject = products.find(product => product.id == index + 1);
+// addToCart(selectedObject)

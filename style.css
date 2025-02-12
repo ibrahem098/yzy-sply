@@ -54,22 +54,89 @@ svg {
     position: absolute;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    gap: var(--gap);
-    padding: var(--gap);
+    padding: 1rem;
     padding-top: 0px;
     height: calc(100vh - var(--height-nav));
     overflow: auto;
 }
 
+.gridGap1 {
+    row-gap: 2rem;
+}
+
+.gridGap3 {
+    row-gap: 4rem;
+    column-gap: 4rem;
+}
+
+.gridGap6 {
+    row-gap: 5rem;
+    column-gap: 2rem;
+}
+
+.gridGap9 {
+    row-gap: 3rem;
+    column-gap: 1rem;
+}
+
+.proudctImg {
+    width: 100%;
+}
+
+.proudctImgGrid1 {
+    width: 38% !important;
+}
+
+.addButtonContiner {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 8rem;
+    width: 100%;
+}
+
+.addButtonContiner button {
+    padding: 1.5rem;
+    font-size: 30px;
+}
+
+.AddButton {
+    opacity: 0;
+    /* Start with buttons hidden */
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
+}
 
 .zoomIn {
     transform: scale(1.2);
     filter: blur(10px);
     opacity: 0;
     transition:
-        transform 4000ms,
-        filter 4000ms ease-in-out,
-        opacity 4000ms;
+        transform 400ms,
+        filter 400ms ease-in-out,
+        opacity 400ms;
+}
+
+.zoomOut {
+    transform: scale(0.8);
+    filter: blur(10px);
+    opacity: 0;
+    transition:
+        transform 400ms,
+        filter 400ms ease-in-out,
+        opacity 400ms;
+}
+
+.fadeIn {
+    transform: translateY(20px);
+    transition:
+        opacity 800ms ease-in-out,
+        transform 200ms ease-in-out;
+}
+
+.fadeIn.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .info {
@@ -93,9 +160,6 @@ svg {
     font-size: 1rem;
 }
 
-.proudctsGrid div img {
-    width: 100%;
-}
 
 .rightSide {
     height: var(--height-nav);
@@ -236,14 +300,6 @@ a {
 .buttonClear {
     border: none;
     background: none;
-}
-
-.addButtonContiner {
-    width: 100%;
-}
-
-.addButtonContiner button {
-    font-size: 30px;
 }
 
 .sizeList,
