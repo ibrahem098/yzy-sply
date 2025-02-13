@@ -178,27 +178,3 @@ function updatePage() {
     updateHeader()
 }
 
-
-let productCards = document.querySelectorAll(".productCard");
-
-productCards.forEach((card, index) => {
-    const handleClick = () => {
-        // Your logic here
-        zoomIn(3);
-        columnState = updateGrid(3, "in");
-        setTimeout(() => {
-            proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
-        }, 400);
-        updateHeader();
-
-        // Remove the event listener after it runs
-        card.removeEventListener("click", handleClick);
-    };
-
-    card.addEventListener("click", handleClick);
-});
-
-
-
-// let selectedObject = products.find(product => product.id == index + 1);
-// addToCart(selectedObject)

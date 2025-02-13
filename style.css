@@ -87,19 +87,6 @@ svg {
     width: 38% !important;
 }
 
-.addButtonContiner {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 8rem;
-    width: 100%;
-}
-
-.addButtonContiner button {
-    padding: 1.5rem;
-    font-size: 30px;
-}
-
 .AddButton {
     opacity: 0;
     /* Start with buttons hidden */
@@ -139,10 +126,7 @@ svg {
     transform: translateY(0);
 }
 
-.info {
-    width: 100%;
-    text-align: center;
-}
+
 
 .title span {
     width: inherit;
@@ -311,9 +295,19 @@ a {
     align-items: center;
 }
 
-.sizeList {
-    height: 8rem;
-    padding: 0rem 2rem;
+
+.addButtonContiner {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /* height: 8rem; */
+    padding: 1.5rem 0px;
+    width: 100%;
+}
+
+.addButtonContiner button {
+    padding: 1.5rem;
+    font-size: 30px;
 }
 
 .sizeSelectContiner {
@@ -326,18 +320,45 @@ a {
     padding: 1.5rem;
 }
 
-.head span {
+.sizeList {
+    /* height: 8rem; */
+    padding: 2rem 0px;
+}
+
+.title {
+    text-align: center;
+    padding: 7px 0px;
+}
+
+.head,
+.info {
+    width: 100%;
     font-size: 1rem;
+
 }
 
 .head {
-    height: 1.5rem;
-    padding: 0rem 3.5rem;
+    padding: 5px 0px;
+
+}
+
+.info {
+    opacity: 1;
+    transition: all, 1000ms;
+}
+
+.sizeSelectContiner {
+    padding: 0px 2rem;
+    opacity: 1;
+    transform: rotateX('20px');
+    transition: all, 4000ms;
+
 }
 
 .head button {
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 0px 1.5rem;
 }
 
 .sizeNum,
