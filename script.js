@@ -474,6 +474,7 @@ let cart = []
 
 products.forEach((product, index) => {
     product.quantity = 1;
+    product.size = 1
     product.id = index + 1
 })
 
@@ -482,32 +483,34 @@ let proudctsGridElemnt = document.querySelector(".proudctsGrid")
 function makeProductGrid() {
     products.forEach((product, index) => {
         proudctHTML = `
-<div class="productCard">
+<div class="productCard id="${product.id}">
     <img class="proudctImg" src="${product.images[0]}">
-    <div class="info">
-        <div class="title">
-            <span>${product.title}</span>
-        </div>
-        <div class="addButtonContiner hidden">
-            <button class=" AddButton buttonClear">+</button>
-        </div>
-    </div>
-    <div class="sizeSelectContiner hidden">
-        <div class="head ">
-            <button class="helpButton buttonClear">?</button>
-            <span>SELECT SIZE</span>
-            <button class="closeButton buttonClear">></button>
-        </div>
-        <div class="sizeList">
-            <div class="sizeNum ">
-                <button class="sizeSet buttonClear">1</button>
-                <button class="sizeSet buttonClear">2</button>
-                <button class="sizeSet buttonClear">3</button>
+    <div class="proudctDetails">
+        <div class="info">
+            <div class="title">
+                <span>${product.title}</span>
             </div>
-            <div class="sizeTxt hidden">
-                <button class="sizeSet buttonClear">S-M</button>
-                <button class="sizeSet buttonClear">M-L</button>
-                <button class="sizeSet buttonClear">XL-XXL</button>
+            <div class="addButtonContiner  hidden">
+                <button class=" AddButton fadeable buttonClear ">+</button>
+            </div>
+        </div>
+        <div class="sizeSelectContiner hidden">
+            <div class="head ">
+                <button class="helpButton  fadeable buttonClear">?</button>
+                <span>SELECT SIZE</span>
+                <button class="closeButton  fadeable buttonClear">></button>
+            </div>
+            <div class="sizeList fadeable">
+                <div class="sizeNum ">
+                    <button class="sizeSet buttonClear" data-id="${product.id}">1</button>
+                    <button class="sizeSet buttonClear" data-id="${product.id}">2</button>
+                    <button class="sizeSet buttonClear" data-id="${product.id}">3</button>
+                </div>
+                <div class="sizeTxt hidden">
+                    <button class="sizeSet buttonClear" data-id="${product.id}">S-M</button>
+                    <button class="sizeSet buttonClear" data-id="${product.id}">M-L</button>
+                    <button class="sizeSet buttonClear" data-id="${product.id}">XL-XXL</button>
+                </div>
             </div>
         </div>
     </div>
@@ -524,7 +527,7 @@ let cartItemHTML = ''
 function makeCartItemHTML(CartItemObject) {
     cartItemHTML = `<div class="cartItem" data-id="${CartItemObject.id}"><img src="${CartItemObject.images[0]}"><div class="itemDetails">
 <div class="itemTag"><span class="itemTitle">${CartItemObject.title}</span><span class="itemPrice">${(CartItemObject.price * CartItemObject.quantity)} USD</span>
-</div><div class="itemSizeLine"><span>SIZE</span><span class="itemSize">${CartItemObject.sizes}</span></div><div class="qtyLine"><span>QTY</span>
+</div><div class="itemSizeLine"><span>SIZE</span><span class="itemSize">${CartItemObject.size}</span></div><div class="qtyLine"><span>QTY</span>
 <div class="qtySet"><button class="leaveQTY qtyChange" data-id="${CartItemObject.id}">-</button><span class="qty">${CartItemObject.quantity}</span><button class="addQTY qtyChange" data-id="${CartItemObject.id}">+</button></div></div></div></div>`
     return cartItemHTML
 }
@@ -578,14 +581,15 @@ function updateQuantity(selectedCartItem, elemntClass) {
 makeProductGrid()
 makeCartHTML()
 
-function addToCart(selectedObject) {
-    let existingCartItem = cart.find(cartItem => cartItem.id === selectedObject.id);
+function addToCart(selectedObject, size) {
+    let existingCartItem = cart.find(cartItem => cartItem.id === selectedObject.id && cartItem.size === size);
 
     if (existingCartItem) {
         existingCartItem.quantity++;
     } else {
-        cart.push(selectedObject);
+        cart.push({ ...selectedObject, size, quantity: 1 });
     }
+
     makeCartHTML();
     updateCounter();
     calculateTotal();
@@ -608,60 +612,48 @@ function updateCounter() {
 updateCounter()
 calculateTotal()
 
-const addButtons = document.querySelectorAll('.AddButton');
 
-function checkButtonPositions() {
+const addButtons = document.querySelectorAll('.AddButton');
+const addButtonContiners = document.querySelectorAll('.addButtonContiner');
+const sizeListElemnts = document.querySelectorAll('.sizeList');
+let sizeContolsELemnts = document.querySelectorAll('.sizeContols');
+let fadeableELemnts = document.querySelectorAll('.fadeable');
+
+function checkFadeableElemntsPositions() {
     const showThreshold = window.innerHeight * 0.5;
     const hideThreshold = window.innerHeight * 0.90;
-    addButtons.forEach((button) => {
+    fadeableELemnts.forEach((elemnt) => {
         // Get the bounding rectangle of the button
-        const rect = button.getBoundingClientRect();
+        const rect = elemnt.getBoundingClientRect();
 
         // Check if the button is between the bottom 5% and 60% of the screen
         if (rect.top <= hideThreshold && rect.bottom >= showThreshold) {
-            button.style.opacity = '1';
+            elemnt.style.opacity = '1';
+            // elemnt.classList.remove("hidden")
+            // elemnt.classList.remove("noOpacity")
         } else {
-            button.style.opacity = '0';
+            elemnt.style.opacity = '0.1';
+            // elemnt.classList.add("noOpacity")
+            // elemnt.classList.add("hidden")
         }
     });
 }
 
-proudctsGridElemnt.addEventListener('scroll', checkButtonPositions);
-
-checkButtonPositions();
+proudctsGridElemnt.addEventListener('scroll', checkFadeableElemntsPositions);
 
 
+let productCards = document.querySelectorAll(".productCard");
+let sizeSetButtons = document.querySelectorAll(".sizeSet");
 
-
-let productCards = document.querySelectorAll(".productCard")
-productCards.forEach((card, index) => {
-    card.addEventListener("click", () => {
-        let selectedObject = products.find(product => product.id == index + 1);
-        addToCart(selectedObject)
+sizeSetButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        let productID = parseInt(button.getAttribute("data-id"));
+        let productSize = Number(button.innerText);
+        let selectedObject = products.find(product => product.id == productID);
+        addToCart(selectedObject, productSize)
+        console.log(cart);
     })
 })
-
-// productCards.forEach((card, index) => {
-//     const handleClick = () => {
-//         // Your logic here
-//         zoomIn(3);
-//         columnState = updateGrid(3, "in");
-//         setTimeout(() => {
-//             proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
-//         }, 400);
-//         updateHeader();
-
-//         // Remove the event listener after it runs
-//         card.removeEventListener("click", handleClick);
-//     };
-
-//     card.addEventListener("click", handleClick);
-// });
-
-
-
-// // let selectedObject = products.find(product => product.id == index + 1);
-// // addToCart(selectedObject)
 
 
 let infoContainerElemnts = document.querySelectorAll(".info");
@@ -673,6 +665,7 @@ let sizeTxtElemnts = document.querySelectorAll(".sizeTxt");
 let sizeBoxState = "num";
 
 function showSizeContainer(index) {
+    proudctsGridElemnt.scrollBy(0, 1);
     for (let SizeBoxIndex = 0; SizeBoxIndex < productCards.length; SizeBoxIndex++) {
         const sizeSelectContinerElemnt = sizeSelectContinerElemnts[SizeBoxIndex];
         if (SizeBoxIndex === index) {
@@ -712,4 +705,26 @@ sizeSloseButtonElemnts.forEach((closeButton, index) => {
 
 helpButtonElemnts.forEach((helpButton, index) => {
     helpButton.addEventListener("click", () => toggleSizeLetters(index));
+});
+
+
+let proudctImgElemnts = document.querySelectorAll(".proudctImg");
+proudctImgElemnts.forEach((proudctImgElemnt, index) => {
+    let clicked = false
+    const handleClick = () => {
+        zoomIn(3);
+        columnState = updateGrid(3, "in");
+        setTimeout(() => {
+            proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+        }, 400);
+        setTimeout(() => {
+            addButtonContiners.forEach(addButtonContiner => {
+                addButtonContiner.classList.remove("hidden")
+            })
+            proudctImgElemnt.scrollIntoView({ behavior: "auto", block: "start" });
+        }, 500)
+        proudctImgElemnt.removeEventListener("click", handleClick);
+        updateHeader(columnState);
+    };
+    proudctImgElemnt.addEventListener("click", handleClick);
 });

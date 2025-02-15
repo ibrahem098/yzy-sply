@@ -5,11 +5,13 @@ listToggleElemnt.addEventListener("click", () => {
     if (listToggleElemnt.innerText === "=") {
         listToggleElemnt.innerText = "<"
         zoomInButton.classList.add("hidden")
-        listItemsElemnt.classList.remove("hidden")
+        listItemsElemnt.classList.add("slideIn")
+        listItemsElemnt.classList.remove("slideOut")
     } else {
         listToggleElemnt.innerText = "="
         zoomInButton.classList.remove("hidden")
-        listItemsElemnt.classList.add("hidden")
+        listItemsElemnt.classList.add("slideOut")
+        listItemsElemnt.classList.remove("slideIn")
     }
 })
 
@@ -82,7 +84,6 @@ function updateGrid(columnState, zoomState) {
     return columnState;
 }
 function zoomIn(columnState) {
-
     proudctsGridElemnt.classList.add("zoomIn");
     setTimeout(() => {
         proudctsGridElemnt.classList.remove("zoomIn");
@@ -96,6 +97,7 @@ function zoomIn(columnState) {
 }
 
 zoomInButton.addEventListener("click", () => {
+    showSizeContainer("none")
     listToggleElemnt.classList.add("hidden");
     zoomOutButton.classList.remove("hidden");
     zoomIn(columnState)
@@ -121,6 +123,7 @@ function zoomOut(columnState) {
 
 zoomOutButton.innerText = "<"
 zoomOutButton.addEventListener("click", () => {
+    showSizeContainer("none")
     zoomOut(columnState)
     columnState = updateGrid(columnState, "out");
     setTimeout(() => {
@@ -131,7 +134,12 @@ zoomOutButton.addEventListener("click", () => {
 // display Cart Toggle
 let displayCart = false;
 let cartToggleElemnt = document.querySelector(".cartToggle")
-function updateHeader() {
+function updateHeader(columnState) {
+    if (columnState < 3 && !displayCart) {
+        zoomInButton.classList.add("hidden")
+    } else {
+        zoomInButton.classList.remove("hidden")
+    }
     if (displayCart) {
         backArrowElemnt.classList.remove("hidden")
         zoomOutButton.classList.add("hidden")
@@ -139,7 +147,6 @@ function updateHeader() {
         listToggleElemnt.classList.add("hidden")
     } else {
         backArrowElemnt.classList.add("hidden")
-        zoomInButton.classList.remove("hidden")
         listToggleElemnt.classList.remove("hidden")
         if (columnState < 9) {
             zoomOutButton.classList.remove("hidden")
@@ -175,6 +182,6 @@ function updatePage() {
         cartContinerElemnt.classList.add("hidden")
         proudctsGridElemnt.classList.remove("hidden")
     }
-    updateHeader()
+    updateHeader(columnState)
 }
 

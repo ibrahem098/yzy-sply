@@ -11,14 +11,13 @@
 }
 
 :root {
-    --gap: 1rem;
+    --main-font: "IBMPlexMono", monospace;
     --height-nav: 3rem;
-    --height-product-full-details: calc(var(--height-product-details) + var(--height-product-details-gap) + var(--height-product-title));
 }
 
 * {
     box-sizing: border-box;
-    font-family: "IBMPlexMono", monospace;
+    font-family: var(--main-font);
     padding: 0px;
     margin: 0px;
 }
@@ -37,6 +36,7 @@ header {
     padding: 0px 1.5rem;
     position: sticky;
     top: 0px;
+
 }
 
 header div,
@@ -58,6 +58,8 @@ svg {
     padding-top: 0px;
     height: calc(100vh - var(--height-nav));
     overflow: auto;
+
+
 }
 
 .gridGap1 {
@@ -72,6 +74,7 @@ svg {
 .gridGap6 {
     row-gap: 5rem;
     column-gap: 2rem;
+
 }
 
 .gridGap9 {
@@ -88,10 +91,24 @@ svg {
 }
 
 .AddButton {
-    opacity: 0;
+    /* opacity: 0; */
     /* Start with buttons hidden */
     transition: opacity 0.3s ease;
     /* Smooth transition */
+}
+
+@keyframes square-out-center {
+    from {
+        clip-path: inset(0 0 0 0);
+    }
+
+    to {
+        clip-path: inset(100% 100% 100% 100%);
+    }
+}
+
+[transition-style="out:square:center"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-out-center both;
 }
 
 .zoomIn {
@@ -134,6 +151,7 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1 !important;
 }
 
 .proudctsGrid>div {
@@ -142,8 +160,8 @@ svg {
     align-items: center;
     flex-direction: column;
     font-size: 1rem;
+    /* animation: square-out-center 5s;  */
 }
-
 
 .rightSide {
     height: var(--height-nav);
@@ -166,12 +184,7 @@ svg {
     font-size: 2rem;
 }
 
-.listItems {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-    padding-left: 2rem;
-}
+
 
 .backArrow {
     width: var(--height-nav);
@@ -205,7 +218,7 @@ a {
     padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: var(--gap);
+    gap: 1rem;
     height: 100%;
 }
 
@@ -281,6 +294,10 @@ a {
     display: none !important;
 }
 
+.noOpacity {
+    opacity: 0;
+}
+
 .buttonClear {
     border: none;
     background: none;
@@ -308,16 +325,28 @@ a {
 .addButtonContiner button {
     padding: 1.5rem;
     font-size: 30px;
+
+}
+
+.fadeable {
+    transition: opacity 0.5s;
 }
 
 .sizeSelectContiner {
     width: 100%;
+    margin: auto;
 }
 
+
 .sizeSet {
-    font-size: 1.1rem;
+    width: 80px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 1.5rem;
+    padding: 1.5rem 0px;
+}
+
+.proudctDetails {
+    width: 100%;
 }
 
 .sizeList {
@@ -344,14 +373,12 @@ a {
 
 .info {
     opacity: 1;
-    transition: all, 1000ms;
 }
 
 .sizeSelectContiner {
     padding: 0px 2rem;
     opacity: 1;
-    transform: rotateX('20px');
-    transition: all, 4000ms;
+
 
 }
 
@@ -366,4 +393,41 @@ a {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+
+.listItems {
+    position: relative;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    left: -100px;
+    opacity: 0;
+    transform: translateX(0);
+    pointer-events: none;
+    /* Prevent interaction */
+    height: 0;
+    /* Remove space */
+    overflow: hidden;
+    /* Hide content */
+    transition: transform 0.5s, opacity 0.5s, height 0.5s;
+}
+
+.slideIn {
+    transform: translateX(100px);
+    opacity: 1;
+    pointer-events: auto;
+    /* Allow interaction */
+    height: auto;
+    /* Restore height */
+}
+
+.slideOut {
+    opacity: 0;
+    transform: translateX(0);
+    pointer-events: none;
+    /* Disable interaction */
+    height: 0;
+    /* Collapse space */
 }
