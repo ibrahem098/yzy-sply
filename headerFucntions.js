@@ -1,19 +1,22 @@
 // listToggle
 let listToggleElemnt = document.querySelector(".listToggle");
 let listItemsElemnt = document.querySelector(".listItems")
-listToggleElemnt.addEventListener("click", () => {
-    if (listToggleElemnt.innerText === "=") {
-        listToggleElemnt.innerText = "<"
-        zoomInButton.classList.add("hidden")
-        listItemsElemnt.classList.add("slideIn")
-        listItemsElemnt.classList.remove("slideOut")
-    } else {
-        listToggleElemnt.innerText = "="
-        zoomInButton.classList.remove("hidden")
-        listItemsElemnt.classList.add("slideOut")
-        listItemsElemnt.classList.remove("slideIn")
-    }
-})
+if (listToggleElemnt) {
+    listToggleElemnt.addEventListener("click", () => {
+        if (listToggleElemnt.innerText === "=") {
+            listToggleElemnt.innerText = "<"
+            zoomInButton.classList.add("hidden")
+            listItemsElemnt.classList.add("slideIn")
+            listItemsElemnt.classList.remove("slideOut")
+        } else {
+            listToggleElemnt.innerText = "="
+            zoomInButton.classList.remove("hidden")
+            listItemsElemnt.classList.add("slideOut")
+            listItemsElemnt.classList.remove("slideIn")
+        }
+    })
+}
+
 
 // zoom in / out
 let zoomInButton = document.querySelector(".zoom");
@@ -96,16 +99,18 @@ function zoomIn(columnState) {
 
 }
 
-zoomInButton.addEventListener("click", () => {
-    showSizeContainer("none")
-    listToggleElemnt.classList.add("hidden");
-    zoomOutButton.classList.remove("hidden");
-    zoomIn(columnState)
-    columnState = updateGrid(columnState, "in");
-    setTimeout(() => {
-        proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
-    }, 400);
-});
+if (zoomInButton) {
+    zoomInButton.addEventListener("click", () => {
+        showSizeContainer("none")
+        listToggleElemnt.classList.add("hidden");
+        zoomOutButton.classList.remove("hidden");
+        zoomIn(columnState)
+        columnState = updateGrid(columnState, "in");
+        setTimeout(() => {
+            proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+        }, 400);
+    });
+}
 
 
 
@@ -121,15 +126,17 @@ function zoomOut(columnState) {
     }, 400);
 }
 
-zoomOutButton.innerText = "<"
-zoomOutButton.addEventListener("click", () => {
-    showSizeContainer("none")
-    zoomOut(columnState)
-    columnState = updateGrid(columnState, "out");
-    setTimeout(() => {
-        proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
-    }, 400);
-})
+if (zoomOutButton) {
+    zoomOutButton.innerText = "<"
+    zoomOutButton.addEventListener("click", () => {
+        showSizeContainer("none")
+        zoomOut(columnState)
+        columnState = updateGrid(columnState, "out");
+        setTimeout(() => {
+            proudctsGridElemnt.style.gridTemplateColumns = `repeat(${columnState}, 1fr)`;
+        }, 400);
+    })
+}
 
 // display Cart Toggle
 let displayCart = false;
@@ -156,15 +163,17 @@ function updateHeader(columnState) {
 }
 
 // cartToggle
-cartToggleElemnt.addEventListener("click", () => {
-    if (displayCart) {
-        displayCart = false;
-    } else {
-        displayCart = true;
-    }
-    updatePage()
+if (cartToggleElemnt) {
+    cartToggleElemnt.addEventListener("click", () => {
+        if (displayCart) {
+            displayCart = false;
+        } else {
+            displayCart = true;
+        }
+        updatePage()
+    })
+}
 
-})
 // back arrow 
 let backArrowElemnt = document.querySelector(".backArrow")
 backArrowElemnt.innerText = "<"

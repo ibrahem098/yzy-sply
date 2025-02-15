@@ -577,9 +577,12 @@ function updateQuantity(selectedCartItem, elemntClass) {
     updateCounter()
     makeCartHTML()
 }
-
-makeProductGrid()
-makeCartHTML()
+if (proudctsGridElemnt) {
+    makeProductGrid()
+}
+if (cartViewElemnt) {
+    makeCartHTML()
+}
 
 function addToCart(selectedObject, size) {
     let existingCartItem = cart.find(cartItem => cartItem.id === selectedObject.id && cartItem.size === size);
@@ -609,8 +612,12 @@ function updateCounter() {
         cartTotalElemnt.classList.remove("hidden")
     }
 }
-updateCounter()
-calculateTotal()
+if (cartViewElemnt) {
+    updateCounter()
+}
+if (totalSpanElemnt) {
+    calculateTotal()
+}
 
 
 const addButtons = document.querySelectorAll('.AddButton');
@@ -629,17 +636,14 @@ function checkFadeableElemntsPositions() {
         // Check if the button is between the bottom 5% and 60% of the screen
         if (rect.top <= hideThreshold && rect.bottom >= showThreshold) {
             elemnt.style.opacity = '1';
-            // elemnt.classList.remove("hidden")
-            // elemnt.classList.remove("noOpacity")
         } else {
             elemnt.style.opacity = '0.1';
-            // elemnt.classList.add("noOpacity")
-            // elemnt.classList.add("hidden")
         }
     });
 }
-
-proudctsGridElemnt.addEventListener('scroll', checkFadeableElemntsPositions);
+if (proudctsGridElemnt) {
+    proudctsGridElemnt.addEventListener('scroll', checkFadeableElemntsPositions);
+}
 
 
 let productCards = document.querySelectorAll(".productCard");
@@ -665,7 +669,10 @@ let sizeTxtElemnts = document.querySelectorAll(".sizeTxt");
 let sizeBoxState = "num";
 
 function showSizeContainer(index) {
+    // makes the EventListener work, no need to scroll
     proudctsGridElemnt.scrollBy(0, 1);
+    proudctsGridElemnt.scrollBy(0, -1);
+
     for (let SizeBoxIndex = 0; SizeBoxIndex < productCards.length; SizeBoxIndex++) {
         const sizeSelectContinerElemnt = sizeSelectContinerElemnts[SizeBoxIndex];
         if (SizeBoxIndex === index) {
