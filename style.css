@@ -28,6 +28,16 @@ body {
     height: 100%;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.buttonClear {
+    border: none;
+    background: none;
+}
+
+/* header */
 header {
     height: var(--height-nav);
     display: flex;
@@ -44,7 +54,6 @@ header div a {
     flex-direction: row;
     align-items: center;
 }
-
 
 .rightSide {
     height: var(--height-nav);
@@ -63,13 +72,9 @@ header div a {
 .leftSide button {
     width: var(--height-nav);
     height: var(--height-nav);
-    border: none;
-    background: none;
     font-size: 2rem;
     cursor: pointer;
 }
-
-
 
 .backArrow {
     width: var(--height-nav);
@@ -83,6 +88,45 @@ header div a {
 svg {
     width: 24px
 }
+
+
+.listItems {
+    position: relative;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    left: -100px;
+    opacity: 0;
+    transform: translateX(0);
+    pointer-events: none;
+    /* Prevent interaction */
+    height: 0;
+    /* Remove space */
+    overflow: hidden;
+    /* Hide content */
+    transition: transform 0.5s, opacity 0.5s, height 0.5s;
+}
+
+.slideIn {
+    transform: translateX(100px);
+    opacity: 1;
+    pointer-events: auto;
+    /* Allow interaction */
+    height: auto;
+    /* Restore height */
+}
+
+.slideOut {
+    opacity: 0;
+    transform: translateX(0);
+    pointer-events: none;
+    /* Disable interaction */
+    height: 0;
+    /* Collapse space */
+}
+
+/* productGrid */
 
 .proudctsGrid {
     position: absolute;
@@ -160,8 +204,6 @@ svg {
     transform: translateY(0);
 }
 
-
-
 .title span {
     width: inherit;
     height: inherit;
@@ -185,6 +227,7 @@ a {
     text-decoration: none;
 }
 
+/* cart */
 
 .cartContiner {
     width: 45%;
@@ -226,9 +269,7 @@ a {
 
 }
 
-.Continue button {
-    background: none;
-    border: none;
+.continueButton {
     font-size: 24px;
     height: 100%;
     width: 5%;
@@ -282,14 +323,27 @@ a {
     scrollbar-width: none;
 }
 
-.hidden {
-    display: none !important;
+/* pages */
+
+.helpContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    width: calc(100vw/2.5);
+    margin: auto;
+    position: relative;
+    top: 8%;
+    line-height: 24px;
 }
 
-.buttonClear {
-    border: none;
-    background: none;
-}
+
+
+
+
+
+
+
+
 
 .sizeList,
 .head {
@@ -380,51 +434,4 @@ a {
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-
-.listItems {
-    position: relative;
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-    padding-left: 2rem;
-    left: -100px;
-    opacity: 0;
-    transform: translateX(0);
-    pointer-events: none;
-    /* Prevent interaction */
-    height: 0;
-    /* Remove space */
-    overflow: hidden;
-    /* Hide content */
-    transition: transform 0.5s, opacity 0.5s, height 0.5s;
-}
-
-.slideIn {
-    transform: translateX(100px);
-    opacity: 1;
-    pointer-events: auto;
-    /* Allow interaction */
-    height: auto;
-    /* Restore height */
-}
-
-.slideOut {
-    opacity: 0;
-    transform: translateX(0);
-    pointer-events: none;
-    /* Disable interaction */
-    height: 0;
-    /* Collapse space */
-}
-
-.helpContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2.2rem;
-    width: calc(100vw/2.5);
-    margin: auto;
-    position: relative;
-    top: 8%;
-    line-height: 24px;
 }
