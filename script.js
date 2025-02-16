@@ -1,4 +1,3 @@
-
 let products = [
     {
         id: null,
@@ -469,9 +468,12 @@ let products = [
         isPrinted: false,
         images: ["assets/images/front/SK-010B.jpg", "assets/images/back/SK-010B.jpg"]
     }
-]
-let cart = []
+];
 
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 products.forEach((product, index) => {
     product.quantity = 1;
     product.size = 1
@@ -576,6 +578,7 @@ function updateQuantity(selectedCartItem, elemntClass) {
     calculateTotal()
     updateCounter()
     makeCartHTML()
+    saveCart(cart)
 }
 if (proudctsGridElemnt) {
     makeProductGrid()
@@ -592,10 +595,10 @@ function addToCart(selectedObject, size) {
     } else {
         cart.push({ ...selectedObject, size, quantity: 1 });
     }
-
     makeCartHTML();
     updateCounter();
     calculateTotal();
+    saveCart(cart)
 }
 
 
